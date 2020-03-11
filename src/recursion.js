@@ -7,6 +7,7 @@
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function(n) {
+
 	if (n < 0) {
 		return null;
 	}
@@ -40,11 +41,36 @@ var arraySum = function(array) {
 		return 0;
 	}
 
+	if (array.length === 1) {
+		return array[0];
+	} else {
+		for (var i = 1; i < array.length; i++) {
+		var item = array[i]
+		if (Array.isArray(item)) {
+			for (var j = 0; j < item; j++) {
+				return array[0] + arraySum(item[j]);
+			}
+		}
 	
+		}
+	}
+  
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+
+n = Math.abs(n);
+
+	if (n === 0) {
+		return true;
+	} 
+
+	if (n === 1) {
+		return false;
+	}
+
+return isEven(n - 2);
 
 };
 
@@ -52,6 +78,22 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+
+	if (n <= 0) {
+		return 0;
+	}
+
+	if (n < 0) {
+		var isNeg = true;
+		console.log(n);
+		return (-n-1) + sumBelow(n-1);
+	} else {
+		isNeg = false;
+		return (n-1) + sumBelow(n-1);
+	}
+
+	
+
 };
 
 // 6. Get the integers within a range (x, y).
